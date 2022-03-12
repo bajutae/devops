@@ -99,7 +99,7 @@ Git도 도입했고, 이제 본격적으로 `Awesome API`의 두번째 기능을
   "format": "prettier --write \"src/**/*.+(js|json)\"",
   "validate": "npm run lint && npm run format",
   "test": "jest",
-  "test:watch": "jest --watch" // 추가
+  "test:watch": "jest --watch" // ⇠ 추가
 },
 ...
 ```
