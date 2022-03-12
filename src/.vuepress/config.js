@@ -126,7 +126,7 @@ module.exports = {
         nav: [
           {
             text: "📔 가이드",
-            link: "/guide/",
+            link: "/guide/hello",
           },
         ],
         sidebar: {
@@ -247,7 +247,7 @@ function getGuideSidebar(groupA, groupB, groupC, groupD, groupE) {
     {
       title: "들어가기",
       collapsable: true,
-      children: [""],
+      children: ["hello"],
     },
     {
       title: groupA,

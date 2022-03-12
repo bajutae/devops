@@ -4,10 +4,10 @@
       <div class="avatar" v-bind:style="avatarStyle" />
       <div class="msg-info">
         <div class="user">
-          {{ user }}
+          {{ userName }}
         </div>
         <div class="msg">
-          {{ msg }}
+          {{ message }}
         </div>
       </div>
       <div class="msg-empty" />
@@ -21,9 +21,9 @@
     data () {
       return {
         avatarStyle: `background: url('/devops/imgs/${this.avatar}.png') no-repeat center center; background-size: cover;`,
-        user: this.user,
+        userName: this.user,
         className: this.isMe === "true" ? "kakao-msg is-me" : "kakao-msg",
-        msg: this.msg
+        message: this.msg
       }
     }
   }

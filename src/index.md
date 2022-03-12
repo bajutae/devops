@@ -3,7 +3,7 @@ home: true
 heroImage: /imgs/devops_hero.png
 tagline: 넓고 얕은 DevOps 도입기
 actionText: 시작하기 →
-actionLink: /guide/
+actionLink: /guide/hello
 footer: ⓒ 2022 by subicura
 
 description: DevOps 안내서
