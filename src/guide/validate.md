@@ -6,13 +6,13 @@ image: /imgs/share.png
 # Validate, 테스트 자동화
 
 ::: tip ⚡️ 목표
-✅ [Husky](https://github.com/typicode/husky)를 이용하여 커밋할 때 자동으로 체크 스크립트를 실행합니다.  
-✅ [lint-staged](https://github.com/okonet/lint-staged)를 이용해서 Husky 실행 속도를 최적화 합니다.
+✅ [Husky](https://github.com/typicode/husky)를 이용하여 커밋할 때 Validate, 테스트 스크립트를 실행합니다.  
+✅ [lint-staged](https://github.com/okonet/lint-staged)를 이용하여 Husky 실행 속도를 최적화 합니다.
 :::
 
 [[toc]]
 
-Git을 도입하고, GitHub도 사용하고 GitHub Flow로 협업도 하고 개발팀의 개발문화가 많이 좋아진 것 같습니다.
+Git을 도입하고, GitHub도 사용하고 GitHub Flow로 협업도 하고 개발팀의 개발문화가 많이 좋아진 것 같습니다. 🔥
 
 <Chat-KakaoRoom>
   <Chat-KakaoMsg msg="요즘 PR이 많이 올라오는데.. validate나 테스트를 깜빡하고 Push하는 경우가 많습니다" isMe="true" />
@@ -26,20 +26,20 @@ Git을 도입하고, GitHub도 사용하고 GitHub Flow로 협업도 하고 개�
 
 ## Husky
 
-Husky는 Git hook을 손쉽게 사용할 수 있게 도와주는 도구입니다. ~~쉬운게 최고~~
+Husky는 Git hook을 손쉽게 사용할 수 있게 도와주는 도구입니다. ~~쉬운 게 최고~~
 
-일단 설치를 합니다. 처음 설치하는 경우 손이 좀 많이 가는데, 이후에 사용하는 개발자는 `npm install` 후 바로 사용하면 됩니다.
+Husky를 설치합니다. 처음 설치하는 경우 손이 좀 많이 가는데, 이후에 사용하는 개발자는 `npm install` 후 바로 사용하면 됩니다.
 
 ```sh
-# install husky
+# Husky 설치
 npm install husky --save-dev
 # package.json에 prepare 스크립트를 추가합니다 (설치하는 사람이 최초 한번만 실행)
 npm set-script prepare "husky install"
-# install husky git hook
+# Git Hook 설정
 npm run prepare
 ```
 
-Husky 설치가 완료되면, Git Hook을 설정합니다. `.husky/pre-commit` 파일을 직접 수정하거나 설정 스크립트를 이용합니다.
+설치가 완료되면, Git Hook을 설정합니다. `.husky/pre-commit` 파일을 직접 수정하거나 스크립트를 이용합니다.
 
 ```sh
 # commit 하기 전에 validate와 test 스크립트 실행
@@ -49,7 +49,9 @@ npx husky add .husky/pre-commit "npm run validate && npm run test"
 이제 수정사항을 커밋해볼까요?
 
 ```sh
+# 변경된 파일 추가
 git add .
+# 커밋
 git commit -m "add husky"
 ```
 
@@ -95,18 +97,23 @@ Validate와 테스트 스크립트가 자동으로 실행되는 것을 확인할
   <Chat-KakaoMsg msg="Husky 간단하고 진짜 좋네요!" isMe="true" />
   <Chat-KakaoMsg msg="근데.. 코드가 좀 커지니까 git commit 명령어가 너무 느려졌어요 ㅠㅠ 팀원들도 뭐라고 하고.. 빼자고.." isMe="true" />
   <Chat-KakaoMsg avatar="senior" user="촋 CTO" msg="아무래도 코드가 크면 체크하는 시간도 오래 걸리고 사용자 경험이 좋지는 않죠 ㅠㅠ" isMe="false" />
-  <Chat-KakaoMsg avatar="senior" user="촋 CTO" msg="그럼 커밋할 파일들만 체크하는건 어떨까요?" isMe="false" />
+  <Chat-KakaoMsg avatar="senior" user="촋 CTO" msg="그럼 커밋할 파일들만 체크하는 건 어떨까요?" isMe="false" />
   <Chat-KakaoMsg msg="???? 😳" isMe="true" />
   <Chat-KakaoMsg avatar="senior" user="촋 CTO" msg="link-staged를 도입해서 개선해보죠" isMe="false" />
 </Chat-KakaoRoom>
 
+::: tip Husky 더보기
+📔 [Husky 공식문서](https://typicode.github.io/husky)
+:::
+
 ## link-staged
 
-link-staged는 Git의 staged 영역에 있는 파일만 필터링해서 작업할 수 있는 도구입니다. 전체 파일이 많아도 commit 할 파일만 체크하기 때문에 속도를 대폭 개선할 수 있습니다.
+link-staged는 Git의 staged 영역에 있는 파일만 필터링해서 작업할 수 있는 도구입니다. 전체 파일 중에 commit 할 파일만 체크하기 때문에 속도를 대폭 개선할 수 있습니다.
 
 link-staged를 설치합니다.
 
 ```sh
+# lint-staged 설치
 npm install lint-staged --save-dev
 ```
 
@@ -125,9 +132,9 @@ npm install lint-staged --save-dev
 },
 ```
 
-어떤 파일을 어떻게 체크할지 `.lintstagedrc`을 설정합니다.
+어떤 파일을 어떻게 체크할지 `.lintstagedrc`파일에 설정합니다.
 
-`*.js` 파일에 대해서 Prettier, ESLint, Jest를 수행합니다. Jest는 수정한 파일과 관련된 테스트를 수행하기 위해 `--findRelatedTests` 옵션을 추가합니다.
+`*.js` 파일에 대해서 Prettier, ESLint, Jest를 수행하고 Jest는 수정한 파일과 관련된 테스트를 수행하기 위해 `--findRelatedTests` 옵션을 추가합니다.
 
 ```sh
 {
@@ -149,11 +156,13 @@ npm run lint-staged # ⇠ 추가
 이제 어떻게 동작하는지 커밋을 해볼까요?
 
 ```sh
+# 변경된 파일 추가
 git add .
+# 커밋
 git commit -m "add lint-staged"
 ```
 
-아무런 체크 없이 커밋이 되었습니다. 수정한 파일중에 `.js` 파일이 없어서 스크립트가 실행되지 않았습니다.
+아무런 체크 없이 커밋이 되었습니다. 수정한 파일중에 `.js` 파일이 없어서 lint-staged에 설정한 스크립트가 실행되지 않았습니다.
 
 일부러 `.js` 파일을 하나 수정하고 다시 커밋합니다.
 
@@ -168,8 +177,12 @@ git commit -m "add lint-staged"
 
 lint-staged가 수정된 파일만 골라서 체크하는 것을 확인할 수 있습니다.
 
+::: tip lint-staged 더보기
+📔 [lint-staged 설정 공식문서](https://github.com/okonet/lint-staged#configuration)
+:::
+
 ## 마무리
 
-새로운 도구가 오히려 개발을 더 비효율적으로 만들 수 있습니다. 도구를 도입하는 목적은 "더 빨리, 더 안정적으로" 개발하는 것임을 생각하고 개선할 수 있는 방법을 찾는 것이 중요합니다. ~~찾아보면 이미 다 있음~~
+도구를 도입하는 목적은 "더 빨리, 더 안정적으로" 개발하는 것임을 생각하고 개선할 수 있는 방법을 찾는 것이 중요합니다. ~~찾아보면 이미 다 있음~~
 
 이제 개발 환경은 여기까지 설정하고 본격적으로 배포를 해봅시다.

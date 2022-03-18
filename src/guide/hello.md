@@ -7,9 +7,9 @@ image: /imgs/share.png
 
 `Twelve Purple`은 창업한 지 얼마 안 된 꼬꼬마 스타트업입니다.
 
-개발자는 총 3명, 모두 주니어 개발자로 이루어져 있지만 열정만큼은 이미 구글, 테슬라입니다. 개발 언어는 `Node.js`, 클라우드는 `AWS`를 사용하고 곧 유니콘이 될(~~거라 생각~~) `Awesome API` 프로젝트를 진행하고 있습니다.
+개발자는 총 3명, 모두 주니어 개발자로 이루어져 있지만, 열정만큼은 이미 구글, 테슬라입니다. 개발 언어는 `Node.js`, 클라우드는 `AWS`를 사용하고 곧 유니콘이 될(~~거라 생각~~) `Awesome API` 프로젝트를 진행하고 있습니다.
 
-대표님이 어느 날 제대로 된 개발 문화를 위해선 우리도 `DevOps` 조직이 되어야 한다며, 지인 CTO 분을 채팅방에 초대했습니다.
+대표님이 어느 날 제대로 된 개발 문화를 위해선 우리도 `DevOps` 조직이 되어야 한다며, 새로운 CTO님을 영입했습니다.
 
 <Chat-KakaoRoom>
   <Chat-KakaoMsg avatar="senior" user="촋 CTO" msg="안녕하세요 👋" isMe="false" />
@@ -37,12 +37,13 @@ Node.js 기반 웹 애플리케이션을 만들고 테스트 코드를 추가합
 - [Node.js 웹 애플리케이션 - Fastify / Prettier / ESLint / Jest](./web)
 - [Git](./git)
 - [GitHub / GitHub Flow](./github)
-- [Validate 자동화 - husky / lint-staged](./validate)
+- [Validate, 테스트 자동화 - husky / lint-staged](./validate)
 
 **배포**
 
-AWS에 Node.js 애플리케이션을 배포합니다. 단일 서버 -> 다중 서버 -> SSL 적용까지 한 단계씩 진행합니다.
+AWS에 Node.js 애플리케이션을 배포합니다. 살짝 PaaS를 알아보고 단일 서버 -> 다중 서버 -> SSL 적용까지 한 단계씩 진행합니다.
 
+- [배포하기 - PaaS](./deploy)
 - [AWS 배포 - EC2 / pm2](./aws-deploy)
 - [AWS 다중 서버 배포 - ELB](./aws-multi-deploy)
 - [SSL 인증서 - Certificate](./aws-certificate)
@@ -55,7 +56,7 @@ Docker를 이용하여 Node.js 애플리케이션을 컨테이너로 배포합�
 
 **지속적 통합(CI)**
 
-Jenkins를 이용하여 지속적으로 테스트를 검증하고 GitHub Pull Request를 연동합니다.
+Jenkins를 이용하여 지속적으로 테스트를 검증하고 GitHub을 연동합니다.
 
 - [Jenkins](./jenkins)
 - [Lint / Test / Coverage](./jenkins-report)

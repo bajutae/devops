@@ -51,36 +51,38 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-`Untracked files`에 버전 관리할 파일들이 보입니다. 근데 `node_modules`는 `npm install`로 설치하는 항목이므로 버전관리에서 제외해야 할 것 같습니다. 쓸데없이 용량만 차지할 것 같네요.
+`Untracked files`에 버전 관리할 파일들이 보입니다. 근데 `node_modules`는 `npm install`로 설치하는 항목이므로 버전 관리에서 제외해야 합니다. 가급적 소스코드만 최소한으로 관리하는 것이 좋습니다.
 
-`.gitignore` 파일을 다음과 같이 생성합니다.
+`.gitignore` 파일을 생성합니다.
 
 ```
 node_modules
 ```
 
-이제 `node_modules` 폴더를 제외했으니 첫번째 커밋을 작성합니다.
+이제 `node_modules` 폴더를 제외했으니 첫 번째 커밋을 작성합니다.
 
 ```sh
 # 전체 파일을 버전 관리 항목으로 추가
 git add .
-# 첫번째 커밋!
+# 첫 번째 커밋!
 git commit -m "init"
 ```
 
-🎉 첫번째 커밋을 성공했습니다. 이제 나중에 파일을 지우거나 수정하면 변경된 내용을 확인할 수 있고 다시 복구할 수도 있습니다.
+🎉 첫 번째 커밋을 성공했습니다. 이제 나중에 파일을 지우거나 수정하면 변경된 내용을 확인할 수 있고 복구할 수도 있습니다.
 
 ::: tip Git 더보기
-✅ [Git 설치하기](https://subicura.com/git/prepare/)  
-✅ [Git 기본 가이드](https://subicura.com/git/guide/#git%E1%84%8B%E1%85%B4-%E1%84%90%E1%85%B3%E1%86%A8%E1%84%8C%E1%85%B5%E1%86%BC)
+📔 [공식 문서](https://git-scm.com/doc)  
+📔 [Git / GitHub 안내서](https://subicura.com/git/)  
+📝 [Git 설치하기](https://subicura.com/git/prepare/)  
+📝 [Git 기본 가이드](https://subicura.com/git/guide/#git%E1%84%8B%E1%85%B4-%E1%84%90%E1%85%B3%E1%86%A8%E1%84%8C%E1%85%B5%E1%86%BC)
 :::
 
-## 두번째 기능 추가
+## TDD
 
-Git도 도입했고, 이제 본격적으로 `Awesome API`의 두번째 기능을 추가합니다. 지금 생각하는 기능은 `/ping`에 요청을 보내면 `{ "status": "ok }`를 응답하는 API 입니다.
+Git도 도입했고, 이제 본격적으로 `Awesome API`의 두 번째 기능을 추가합니다. 지금 생각하는 기능은 `/ping`에 요청을 보내면 `{ "status": "ok" }`를 응답하는 API 입니다.
 
 <Chat-KakaoRoom>
-  <Chat-KakaoMsg msg="Git 첫번째 Commit 성공했어요!" isMe="true" />
+  <Chat-KakaoMsg msg="Git 첫 번째 Commit 성공했어요!" isMe="true" />
   <Chat-KakaoMsg avatar="senior" user="촋 CTO" msg="오.. 축하합니다!" isMe="false" />
   <Chat-KakaoMsg msg="이번에 새로운 기능을 추가하고 있는데.. 혹시 TDD 방식으로 만들어 볼 수 있을까요?" isMe="true" />
   <Chat-KakaoMsg avatar="senior" user="촋 CTO" msg="테스트 코드가 마음에 드셨나 보네요 ㅎㅎ" isMe="false" />
@@ -107,6 +109,7 @@ Git도 도입했고, 이제 본격적으로 `Awesome API`의 두번째 기능을
 스크립트를 실행합니다.
 
 ```sh
+# 테스트 실행
 npm run test:watch
 ```
 
@@ -138,7 +141,7 @@ test('"/ping" 요청시 "status: ok" 응답 확인', async () => {
 });
 ```
 
-테스트 코드를 작성하면 Jest가 자동으로 테스트를 수행합니다.
+테스트 코드를 저장하면 자동으로 테스트를 수행합니다.
 
 ```sh
  FAIL  src/__tests__/app.js
@@ -179,7 +182,7 @@ Watch Usage: Press w to show more.
 
 아직 코드를 작성하기 전이므로 정상적으로 테스트가 실패하였습니다.
 
-저장할 때마다 실시간으로 테스트 결과를 알려주니 편한것 같습니다. ~~모니터를 하나 더 사야겠습니다~~
+저장할 때마다 실시간으로 테스트 결과를 알려주니 편한 것 같습니다. ~~모니터를 하나 더 사야겠습니다~~
 
 이제 `src/app.js` 파일에 `/ping` 내용을 추가합니다.
 
@@ -193,7 +196,7 @@ app.get("/ping", async function () {
 파일을 저장하면 자동으로 테스트를 수행합니다.
 
 ```sh
-PASS  src/__tests__/app.js
+ PASS  src/__tests__/app.js
   ✓ "/" 요청시 "hello: world" 응답 확인 (90 ms)
   ✓ "/ping" 요청시 "status: ok" 응답 확인 (2 ms)
 
@@ -213,11 +216,16 @@ Watch Usage: Press w to show more.
 아참! 커밋하기전에 정적 코드 분석을 먼저합니다.
 
 ```sh
+# 정적분석, 포멧팅 실행
 npm run validate
+# 변경된 파일 추가
 git add .
+# 커밋
 git commit -m "add ping"
 ```
 
 ## 마무리
+
+Git은 많은 회사에서 사용 중인 협업을 위한 필수 도구입니다. 단순 이력 관리 외에 다양한 부가기능이 있으며, CLI 외에 GUI 도구나 IDE에 내장된 기능을 적절히 사용하면 생산성을 높일 수 있습니다. 특히 Git의 고급기능을 사용하면 고오오오급 개발자처럼 보이는 효과가 있습니다.
 
 이제 Git을 도입했으니 본격적으로 GitHub을 이용하여 팀과 협업해봅니다.

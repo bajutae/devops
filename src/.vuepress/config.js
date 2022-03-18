@@ -133,9 +133,9 @@ module.exports = {
           "/guide/": getGuideSidebar(
             "개발과 테스트 코드",
             "배포",
-            "컨테이너",
-            "지속적 통합(CI)",
-            "쿠버네티스"
+            "컨테이너 (준비중)",
+            "지속적 통합(CI) (준비중)",
+            "쿠버네티스 (준비중)"
           ),
         },
       },
@@ -257,7 +257,7 @@ function getGuideSidebar(groupA, groupB, groupC, groupD, groupE) {
     {
       title: groupB,
       collapsable: true,
-      children: ["aws-deploy", "aws-multi-deploy", "aws-certificate"],
+      children: ["deploy", "aws-deploy", "aws-multi-deploy", "aws-certificate"],
     },
     {
       title: groupC,
