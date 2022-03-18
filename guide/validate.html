@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Validate, 테스트 자동화 | DevOps 안내서</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" type="image/png" sizes="32x32" href="/devops/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/devops/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/devops/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/devops/manifest.json">
+    <link rel="mask-icon" href="/devops/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="https://css.gg/css?=|calendar-dates|folder|tag" rel="stylesheet">
+    <meta name="description" content="Validate, 테스트 자동체크 도입하기">
+    <meta name="image" content="https://subicura.com/devops/imgs/share.png">
+    <meta name="twitter:title" content="Validate, 테스트 자동화">
+    <meta name="twitter:description" content="Validate, 테스트 자동체크 도입하기">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://subicura.com/devops/imgs/share.png">
+    <meta name="twitter:url" content="https://subicura.com/devops/guide/validate.html">
+    <meta name="twitter:creator" content="@subicura">
+    <meta name="twitter:site" content="@subicura">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Validate, 테스트 자동화">
+    <meta property="og:description" content="Validate, 테스트 자동체크 도입하기">
+    <meta property="og:image" content="https://subicura.com/devops/imgs/share.png">
+    <meta property="og:url" content="https://subicura.com/devops/guide/validate.html">
+    <meta property="og:site_name" content="DevOps 안내서">
+    <meta property="article:author" content="subicura">
+    <meta itemprop="name" content="Validate, 테스트 자동화">
+    <meta itemprop="description" content="Validate, 테스트 자동체크 도입하기">
+    <meta itemprop="image" content="https://subicura.com/devops/imgs/share.png">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/devops/icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta property="fb:app_id" content="1611862309129685">
+    
+    <link rel="preload" href="/devops/assets/css/0.styles.1ab9e35c.css" as="style"><link rel="preload" href="/devops/assets/js/app.d5984bfa.js" as="script"><link rel="preload" href="/devops/assets/js/7.9d38de38.js" as="script"><link rel="preload" href="/devops/assets/js/2.c52c0dc6.js" as="script"><link rel="preload" href="/devops/assets/js/1.f7010e06.js" as="script"><link rel="preload" href="/devops/assets/js/41.81becb0d.js" as="script"><link rel="preload" href="/devops/assets/js/19.633a7f1e.js" as="script"><link rel="preload" href="/devops/assets/js/18.07ba2353.js" as="script"><link rel="prefetch" href="/devops/assets/js/10.bfb52892.js"><link rel="prefetch" href="/devops/assets/js/11.864b52d6.js"><link rel="prefetch" href="/devops/assets/js/12.1d829c14.js"><link rel="prefetch" href="/devops/assets/js/13.34b5ef6e.js"><link rel="prefetch" href="/devops/assets/js/14.a83eb82e.js"><link rel="prefetch" href="/devops/assets/js/15.0f983616.js"><link rel="prefetch" href="/devops/assets/js/16.26902a62.js"><link rel="prefetch" href="/devops/assets/js/17.6ada49f4.js"><link rel="prefetch" href="/devops/assets/js/20.76d8816a.js"><link rel="prefetch" href="/devops/assets/js/21.2ddb578a.js"><link rel="prefetch" href="/devops/assets/js/22.39b3206e.js"><link rel="prefetch" href="/devops/assets/js/23.9af3fc8e.js"><link rel="prefetch" href="/devops/assets/js/24.948e75bd.js"><link rel="prefetch" href="/devops/assets/js/25.f2d4c588.js"><link rel="prefetch" href="/devops/assets/js/26.4c1b6073.js"><link rel="prefetch" href="/devops/assets/js/27.b035d3b1.js"><link rel="prefetch" href="/devops/assets/js/28.2235afcf.js"><link rel="prefetch" href="/devops/assets/js/29.f84da66f.js"><link rel="prefetch" href="/devops/assets/js/30.c38e081e.js"><link rel="prefetch" href="/devops/assets/js/31.64dde93c.js"><link rel="prefetch" href="/devops/assets/js/32.6d3547f6.js"><link rel="prefetch" href="/devops/assets/js/33.e5cc732b.js"><link rel="prefetch" href="/devops/assets/js/34.a7975b40.js"><link rel="prefetch" href="/devops/assets/js/35.bc418548.js"><link rel="prefetch" href="/devops/assets/js/36.863f1217.js"><link rel="prefetch" href="/devops/assets/js/37.a0712828.js"><link rel="prefetch" href="/devops/assets/js/38.292e7f40.js"><link rel="prefetch" href="/devops/assets/js/39.b09fb30a.js"><link rel="prefetch" href="/devops/assets/js/4.2fa5351c.js"><link rel="prefetch" href="/devops/assets/js/40.b2ea5f4c.js"><link rel="prefetch" href="/devops/assets/js/42.36d452e6.js"><link rel="prefetch" href="/devops/assets/js/43.4f5c090d.js"><link rel="prefetch" href="/devops/assets/js/44.019a59a7.js"><link rel="prefetch" href="/devops/assets/js/5.49ff453f.js"><link rel="prefetch" href="/devops/assets/js/6.ead9053d.js"><link rel="prefetch" href="/devops/assets/js/8.9cab6fa6.js"><link rel="prefetch" href="/devops/assets/js/9.297211b4.js">
+    <link rel="stylesheet" href="/devops/assets/css/0.styles.1ab9e35c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/devops/" class="home-link router-link-active"><!----> <span class="site-name">DevOps 안내서</span></a> <div class="links"><!----> <div class="user-settings"><a href="#" class="settings-button"><svg aria-hidden="true" data-prefix="fas" data-icon="cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cog fa-w-16 settings-icon"><path fill="currentColor" d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></a> <div class="user-settings-menu" style="display:none;"><div class="theme-options"><!----> <!----> <div class="dark-theme-options toggle-option"><div class="toggleWrapper" data-v-53a5133a><input type="checkbox" id="themeSwitch" data-v-53a5133a><label for="themeSwitch" class="toggle" data-v-53a5133a><span class="toggle__handler" data-v-53a5133a><span class="crater crater--1" data-v-53a5133a></span><span class="crater crater--2" data-v-53a5133a></span><span class="crater crater--3" data-v-53a5133a></span></span><span class="star star--1" data-v-53a5133a></span><span class="star star--2" data-v-53a5133a></span><span class="star star--3" data-v-53a5133a></span><span class="star star--4" data-v-53a5133a></span><span class="star star--5" data-v-53a5133a></span><span class="star star--6" data-v-53a5133a></span></label></div></div> <!----> <!----></div></div></div> <!----> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/devops/guide/hello.html" class="nav-link">
+  📔 가이드
+</a></div> <a href="https://github.com/subicura/devops" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a onclick="alert('준비중입니다 :)')" target="_blank" rel="noopener noreferrer" class="inflearn-out-link" style="cursor: pointer">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/devops/guide/hello.html" class="nav-link">
+  📔 가이드
+</a></div> <a href="https://github.com/subicura/devops" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a onclick="alert('준비중입니다 :)')" target="_blank" rel="noopener noreferrer" class="inflearn-out-link" style="cursor: pointer">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>들어가기</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>개발과 테스트 코드</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/devops/guide/web.html" class="sidebar-link">Node.js 웹 애플리케이션</a></li><li><a href="/devops/guide/git.html" class="sidebar-link">Git</a></li><li><a href="/devops/guide/github.html" class="sidebar-link">GitHub</a></li><li><a href="/devops/guide/validate.html" aria-current="page" class="active sidebar-link">Validate, 테스트 자동화</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/devops/guide/validate.html#husky" class="sidebar-link">Husky</a></li><li class="sidebar-sub-header"><a href="/devops/guide/validate.html#link-staged" class="sidebar-link">link-staged</a></li><li class="sidebar-sub-header"><a href="/devops/guide/validate.html#마무리" class="sidebar-link">마무리</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>배포</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>컨테이너 (준비중)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>지속적 통합(CI) (준비중)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>쿠버네티스 (준비중)</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="validate-테스트-자동화"><a href="#validate-테스트-자동화" class="header-anchor">#</a> Validate, 테스트 자동화</h1> <div class="custom-block tip"><p class="custom-block-title">⚡️ 목표</p> <p>✅ <a href="https://github.com/typicode/husky" target="_blank" rel="noopener noreferrer">Husky<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>를 이용하여 커밋할 때 Validate, 테스트 스크립트를 실행합니다.<br>
+✅ <a href="https://github.com/okonet/lint-staged" target="_blank" rel="noopener noreferrer">lint-staged<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>를 이용하여 Husky 실행 속도를 최적화 합니다.</p></div> <p></p><div class="table-of-contents"><ul><li><a href="#husky">Husky</a></li><li><a href="#link-staged">link-staged</a></li><li><a href="#마무리">마무리</a></li></ul></div><p></p> <p>Git을 도입하고, GitHub도 사용하고 GitHub Flow로 협업도 하고 개발팀의 개발문화가 많이 좋아진 것 같습니다. 🔥</p> <div class="kakao-room"><div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        요즘 PR이 많이 올라오는데.. validate나 테스트를 깜빡하고 Push하는 경우가 많습니다
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        아.. 진짜 계속 까먹어요 ㅠ 이거 혹시 해결방법 없을까요?
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        깜빡하는 팀원에게 벌금을 걷는..건 아니고 커밋하기 전에 강제로  체크하면 되겠네요
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        오 강제로 체크할 수가 있나요?
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        Git은 hook을 지원하기 때문에 pre-commit hook을 이용하면 됩니다
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        .git/hooks 디렉토리 봤는데.. 봐도 잘 모르겠어요 ㅠㅠ
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        ㅎㅎㅎ 쉘 스크립트를 몰라도 사용할 수 있어요. Husky를 도입해 보죠
+      </div></div> <div class="msg-empty"></div></div></div></div> <h2 id="husky"><a href="#husky" class="header-anchor">#</a> Husky</h2> <p>Husky는 Git hook을 손쉽게 사용할 수 있게 도와주는 도구입니다. <s>쉬운 게 최고</s></p> <p>Husky를 설치합니다. 처음 설치하는 경우 손이 좀 많이 가는데, 이후에 사용하는 개발자는 <code>npm install</code> 후 바로 사용하면 됩니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># Husky 설치</span>
+<span class="token function">npm</span> <span class="token function">install</span> husky --save-dev
+<span class="token comment"># package.json에 prepare 스크립트를 추가합니다 (설치하는 사람이 최초 한번만 실행)</span>
+<span class="token function">npm</span> set-script prepare <span class="token string">&quot;husky install&quot;</span>
+<span class="token comment"># Git Hook 설정</span>
+<span class="token function">npm</span> run prepare
+</code></pre></div><p>설치가 완료되면, Git Hook을 설정합니다. <code>.husky/pre-commit</code> 파일을 직접 수정하거나 스크립트를 이용합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># commit 하기 전에 validate와 test 스크립트 실행</span>
+npx husky <span class="token function">add</span> .husky/pre-commit <span class="token string">&quot;npm run validate &amp;&amp; npm run test&quot;</span>
+</code></pre></div><p>이제 수정사항을 커밋해볼까요?</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 변경된 파일 추가</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token comment"># 커밋</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;add husky&quot;</span>
+</code></pre></div><div class="language-sh extra-class"><pre class="language-sh"><code><span class="token operator">&gt;</span> awesome-api-server@1.0.0 validate
+<span class="token operator">&gt;</span> <span class="token function">npm</span> run lint <span class="token operator">&amp;&amp;</span> <span class="token function">npm</span> run <span class="token function">format</span>
+
+
+<span class="token operator">&gt;</span> awesome-api-server@1.0.0 lint
+<span class="token operator">&gt;</span> eslint <span class="token builtin class-name">.</span>
+
+
+<span class="token operator">&gt;</span> awesome-api-server@1.0.0 <span class="token function">format</span>
+<span class="token operator">&gt;</span> prettier --write <span class="token string">&quot;src/**/*.+(js|json)&quot;</span>
+
+src/__tests__/app.js 26ms
+src/app.js 9ms
+src/server.js 4ms
+
+<span class="token operator">&gt;</span> awesome-api-server@1.0.0 <span class="token builtin class-name">test</span>
+<span class="token operator">&gt;</span> jest
+
+ PASS  src/__tests__/app.js
+  ✓ <span class="token string">&quot;/&quot;</span> 요청시 <span class="token string">&quot;hello: world&quot;</span> 응답 확인 <span class="token punctuation">(</span><span class="token number">62</span> ms<span class="token punctuation">)</span>
+  ✓ <span class="token string">&quot;/ping&quot;</span> 요청시 <span class="token string">&quot;status: ok&quot;</span> 응답 확인 <span class="token punctuation">(</span><span class="token number">2</span> ms<span class="token punctuation">)</span>
+  ✓ <span class="token string">&quot;/activity&quot;</span> 접속시 정상 응답 <span class="token punctuation">(</span><span class="token number">2</span> ms<span class="token punctuation">)</span>
+  ✓ <span class="token string">&quot;/activity&quot;</span> 접속시 boredapi 오류 처리 <span class="token punctuation">(</span><span class="token number">4</span> ms<span class="token punctuation">)</span>
+  ✓ <span class="token string">&quot;/activity&quot;</span> 접속시 activity 빈값 처리 <span class="token punctuation">(</span><span class="token number">1</span> ms<span class="token punctuation">)</span>
+
+Test Suites: <span class="token number">1</span> passed, <span class="token number">1</span> total
+Tests:       <span class="token number">5</span> passed, <span class="token number">5</span> total
+Snapshots:   <span class="token number">3</span> passed, <span class="token number">3</span> total
+Time:        <span class="token number">0.323</span> s, estimated <span class="token number">1</span> s
+Ran all <span class="token builtin class-name">test</span> suites.
+<span class="token punctuation">[</span>add-activity e027190<span class="token punctuation">]</span> <span class="token function">add</span> husky
+ <span class="token number">3</span> files changed, <span class="token number">29</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span>, <span class="token number">1</span> deletion<span class="token punctuation">(</span>-<span class="token punctuation">)</span>
+ create mode <span class="token number">100755</span> .husky/pre-commit
+</code></pre></div><p>Validate와 테스트 스크립트가 자동으로 실행되는 것을 확인할 수 있습니다. 스크립트가 실패하면 커밋도 실패하기 떄문에 이제 이전같은 실수는 더이상 없겠죠?</p> <div class="kakao-room"><div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        Husky 간단하고 진짜 좋네요!
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        근데.. 코드가 좀 커지니까 git commit 명령어가 너무 느려졌어요 ㅠㅠ 팀원들도 뭐라고 하고.. 빼자고..
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        아무래도 코드가 크면 체크하는 시간도 오래 걸리고 사용자 경험이 좋지는 않죠 ㅠㅠ
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        그럼 커밋할 파일들만 체크하는 건 어떨까요?
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        ???? 😳
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        link-staged를 도입해서 개선해보죠
+      </div></div> <div class="msg-empty"></div></div></div></div> <div class="custom-block tip"><p class="custom-block-title">Husky 더보기</p> <p>📔 <a href="https://typicode.github.io/husky" target="_blank" rel="noopener noreferrer">Husky 공식문서<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <h2 id="link-staged"><a href="#link-staged" class="header-anchor">#</a> link-staged</h2> <p>link-staged는 Git의 staged 영역에 있는 파일만 필터링해서 작업할 수 있는 도구입니다. 전체 파일 중에 commit 할 파일만 체크하기 때문에 속도를 대폭 개선할 수 있습니다.</p> <p>link-staged를 설치합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># lint-staged 설치</span>
+<span class="token function">npm</span> <span class="token function">install</span> lint-staged --save-dev
+</code></pre></div><p><code>package.json</code>에 link-staged 스크립트를 추가합니다.</p> <div class="language-json extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br></div><pre class="language-json"><code><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node src/server.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;lint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eslint .&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;format&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prettier --write \&quot;src/**/*.+(js|json)\&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;validate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;npm run lint &amp;&amp; npm run format&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;test:watch&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest --watch&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;prepare&quot;</span><span class="token operator">:</span> <span class="token string">&quot;husky install&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;lint-staged&quot;</span><span class="token operator">:</span> <span class="token string">&quot;lint-staged&quot;</span> <span class="token comment">// ⇠ 추가</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>어떤 파일을 어떻게 체크할지 <code>.lintstagedrc</code>파일에 설정합니다.</p> <p><code>*.js</code> 파일에 대해서 Prettier, ESLint, Jest를 수행하고 Jest는 수정한 파일과 관련된 테스트를 수행하기 위해 <code>--findRelatedTests</code> 옵션을 추가합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;*.+(js)&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;prettier --write&quot;</span>,
+    <span class="token string">&quot;eslint&quot;</span>,
+    <span class="token string">&quot;jest --findRelatedTests&quot;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>기존 huksy Hook 설정을 변경합니다. <code>.husky/pre-commit</code> 파일을 수정합니다.</p> <div class="language-sh extra-class"><div class="highlight-lines"><br><div class="highlighted"> </div><br></div><pre class="language-sh"><code><span class="token comment"># npm run validate &amp;&amp; npm run test // ⇠ 삭제</span>
+<span class="token function">npm</span> run lint-staged <span class="token comment"># ⇠ 추가</span>
+</code></pre></div><p>이제 어떻게 동작하는지 커밋을 해볼까요?</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 변경된 파일 추가</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token comment"># 커밋</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;add lint-staged&quot;</span>
+</code></pre></div><p>아무런 체크 없이 커밋이 되었습니다. 수정한 파일중에 <code>.js</code> 파일이 없어서 lint-staged에 설정한 스크립트가 실행되지 않았습니다.</p> <p>일부러 <code>.js</code> 파일을 하나 수정하고 다시 커밋합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code>✔ Preparing lint-staged<span class="token punctuation">..</span>.
+✔ Running tasks <span class="token keyword">for</span> staged files<span class="token punctuation">..</span>.
+✔ Applying modifications from tasks<span class="token punctuation">..</span>.
+✔ Cleaning up temporary files<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>add-activity a02475c<span class="token punctuation">]</span> update js
+ <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">1</span> insertion<span class="token punctuation">(</span>+<span class="token punctuation">)</span>
+</code></pre></div><p>lint-staged가 수정된 파일만 골라서 체크하는 것을 확인할 수 있습니다.</p> <div class="custom-block tip"><p class="custom-block-title">lint-staged 더보기</p> <p>📔 <a href="https://github.com/okonet/lint-staged#configuration" target="_blank" rel="noopener noreferrer">lint-staged 설정 공식문서<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <h2 id="마무리"><a href="#마무리" class="header-anchor">#</a> 마무리</h2> <p>도구를 도입하는 목적은 &quot;더 빨리, 더 안정적으로&quot; 개발하는 것임을 생각하고 개선할 수 있는 방법을 찾는 것이 중요합니다. <s>찾아보면 이미 다 있음</s></p> <p>이제 개발 환경은 여기까지 설정하고 본격적으로 배포를 해봅시다.</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/subicura/devops/edit/master/src/guide/validate.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2022-03-18</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/devops/guide/github.html" class="prev">
+        GitHub
+      </a></span> <span class="next"><a href="/devops/guide/deploy.html">
+        배포하기
+      </a>
+      →
+    </span></p></div> <div class="ut-comment-wrapper"></div></main></div><div class="global-ui"><!----></div></div>
+    <script src="/devops/assets/js/app.d5984bfa.js" defer></script><script src="/devops/assets/js/7.9d38de38.js" defer></script><script src="/devops/assets/js/2.c52c0dc6.js" defer></script><script src="/devops/assets/js/1.f7010e06.js" defer></script><script src="/devops/assets/js/41.81becb0d.js" defer></script><script src="/devops/assets/js/19.633a7f1e.js" defer></script><script src="/devops/assets/js/18.07ba2353.js" defer></script>
+  </body>
+</html>

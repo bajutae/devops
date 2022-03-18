@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Git | DevOps 안내서</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" type="image/png" sizes="32x32" href="/devops/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/devops/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/devops/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/devops/manifest.json">
+    <link rel="mask-icon" href="/devops/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="https://css.gg/css?=|calendar-dates|folder|tag" rel="stylesheet">
+    <meta name="description" content="Git을 이용한 소스 버전 관리">
+    <meta name="image" content="https://subicura.com/devops/imgs/share.png">
+    <meta name="twitter:title" content="Git">
+    <meta name="twitter:description" content="Git을 이용한 소스 버전 관리">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://subicura.com/devops/imgs/share.png">
+    <meta name="twitter:url" content="https://subicura.com/devops/guide/git.html">
+    <meta name="twitter:creator" content="@subicura">
+    <meta name="twitter:site" content="@subicura">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Git">
+    <meta property="og:description" content="Git을 이용한 소스 버전 관리">
+    <meta property="og:image" content="https://subicura.com/devops/imgs/share.png">
+    <meta property="og:url" content="https://subicura.com/devops/guide/git.html">
+    <meta property="og:site_name" content="DevOps 안내서">
+    <meta property="article:author" content="subicura">
+    <meta itemprop="name" content="Git">
+    <meta itemprop="description" content="Git을 이용한 소스 버전 관리">
+    <meta itemprop="image" content="https://subicura.com/devops/imgs/share.png">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/devops/icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta property="fb:app_id" content="1611862309129685">
+    
+    <link rel="preload" href="/devops/assets/css/0.styles.1ab9e35c.css" as="style"><link rel="preload" href="/devops/assets/js/app.d5984bfa.js" as="script"><link rel="preload" href="/devops/assets/js/7.9d38de38.js" as="script"><link rel="preload" href="/devops/assets/js/2.c52c0dc6.js" as="script"><link rel="preload" href="/devops/assets/js/1.f7010e06.js" as="script"><link rel="preload" href="/devops/assets/js/30.c38e081e.js" as="script"><link rel="preload" href="/devops/assets/js/19.633a7f1e.js" as="script"><link rel="preload" href="/devops/assets/js/18.07ba2353.js" as="script"><link rel="prefetch" href="/devops/assets/js/10.bfb52892.js"><link rel="prefetch" href="/devops/assets/js/11.864b52d6.js"><link rel="prefetch" href="/devops/assets/js/12.1d829c14.js"><link rel="prefetch" href="/devops/assets/js/13.34b5ef6e.js"><link rel="prefetch" href="/devops/assets/js/14.a83eb82e.js"><link rel="prefetch" href="/devops/assets/js/15.0f983616.js"><link rel="prefetch" href="/devops/assets/js/16.26902a62.js"><link rel="prefetch" href="/devops/assets/js/17.6ada49f4.js"><link rel="prefetch" href="/devops/assets/js/20.76d8816a.js"><link rel="prefetch" href="/devops/assets/js/21.2ddb578a.js"><link rel="prefetch" href="/devops/assets/js/22.39b3206e.js"><link rel="prefetch" href="/devops/assets/js/23.9af3fc8e.js"><link rel="prefetch" href="/devops/assets/js/24.948e75bd.js"><link rel="prefetch" href="/devops/assets/js/25.f2d4c588.js"><link rel="prefetch" href="/devops/assets/js/26.4c1b6073.js"><link rel="prefetch" href="/devops/assets/js/27.b035d3b1.js"><link rel="prefetch" href="/devops/assets/js/28.2235afcf.js"><link rel="prefetch" href="/devops/assets/js/29.f84da66f.js"><link rel="prefetch" href="/devops/assets/js/31.64dde93c.js"><link rel="prefetch" href="/devops/assets/js/32.6d3547f6.js"><link rel="prefetch" href="/devops/assets/js/33.e5cc732b.js"><link rel="prefetch" href="/devops/assets/js/34.a7975b40.js"><link rel="prefetch" href="/devops/assets/js/35.bc418548.js"><link rel="prefetch" href="/devops/assets/js/36.863f1217.js"><link rel="prefetch" href="/devops/assets/js/37.a0712828.js"><link rel="prefetch" href="/devops/assets/js/38.292e7f40.js"><link rel="prefetch" href="/devops/assets/js/39.b09fb30a.js"><link rel="prefetch" href="/devops/assets/js/4.2fa5351c.js"><link rel="prefetch" href="/devops/assets/js/40.b2ea5f4c.js"><link rel="prefetch" href="/devops/assets/js/41.81becb0d.js"><link rel="prefetch" href="/devops/assets/js/42.36d452e6.js"><link rel="prefetch" href="/devops/assets/js/43.4f5c090d.js"><link rel="prefetch" href="/devops/assets/js/44.019a59a7.js"><link rel="prefetch" href="/devops/assets/js/5.49ff453f.js"><link rel="prefetch" href="/devops/assets/js/6.ead9053d.js"><link rel="prefetch" href="/devops/assets/js/8.9cab6fa6.js"><link rel="prefetch" href="/devops/assets/js/9.297211b4.js">
+    <link rel="stylesheet" href="/devops/assets/css/0.styles.1ab9e35c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/devops/" class="home-link router-link-active"><!----> <span class="site-name">DevOps 안내서</span></a> <div class="links"><!----> <div class="user-settings"><a href="#" class="settings-button"><svg aria-hidden="true" data-prefix="fas" data-icon="cog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cog fa-w-16 settings-icon"><path fill="currentColor" d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></a> <div class="user-settings-menu" style="display:none;"><div class="theme-options"><!----> <!----> <div class="dark-theme-options toggle-option"><div class="toggleWrapper" data-v-53a5133a><input type="checkbox" id="themeSwitch" data-v-53a5133a><label for="themeSwitch" class="toggle" data-v-53a5133a><span class="toggle__handler" data-v-53a5133a><span class="crater crater--1" data-v-53a5133a></span><span class="crater crater--2" data-v-53a5133a></span><span class="crater crater--3" data-v-53a5133a></span></span><span class="star star--1" data-v-53a5133a></span><span class="star star--2" data-v-53a5133a></span><span class="star star--3" data-v-53a5133a></span><span class="star star--4" data-v-53a5133a></span><span class="star star--5" data-v-53a5133a></span><span class="star star--6" data-v-53a5133a></span></label></div></div> <!----> <!----></div></div></div> <!----> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/devops/guide/hello.html" class="nav-link">
+  📔 가이드
+</a></div> <a href="https://github.com/subicura/devops" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a onclick="alert('준비중입니다 :)')" target="_blank" rel="noopener noreferrer" class="inflearn-out-link" style="cursor: pointer">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/devops/guide/hello.html" class="nav-link">
+  📔 가이드
+</a></div> <a href="https://github.com/subicura/devops" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a onclick="alert('준비중입니다 :)')" target="_blank" rel="noopener noreferrer" class="inflearn-out-link" style="cursor: pointer">
+    영상강의
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>들어가기</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>개발과 테스트 코드</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/devops/guide/web.html" class="sidebar-link">Node.js 웹 애플리케이션</a></li><li><a href="/devops/guide/git.html" aria-current="page" class="active sidebar-link">Git</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/devops/guide/git.html#버전관리" class="sidebar-link">버전관리</a></li><li class="sidebar-sub-header"><a href="/devops/guide/git.html#tdd" class="sidebar-link">TDD</a></li><li class="sidebar-sub-header"><a href="/devops/guide/git.html#마무리" class="sidebar-link">마무리</a></li></ul></li><li><a href="/devops/guide/github.html" class="sidebar-link">GitHub</a></li><li><a href="/devops/guide/validate.html" class="sidebar-link">Validate, 테스트 자동화</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>배포</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>컨테이너 (준비중)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>지속적 통합(CI) (준비중)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>쿠버네티스 (준비중)</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="git"><a href="#git" class="header-anchor">#</a> Git</h1> <div class="custom-block tip"><p class="custom-block-title">⚡️ 목표</p> <p>✅ <a href="https://git-scm.org/" target="_blank" rel="noopener noreferrer">Git<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>을 이용하여 소스를 버전 관리합니다.<br>
+✅ TDD 방식으로 새 기능을 추가합니다.</p></div> <p></p><div class="table-of-contents"><ul><li><a href="#버전관리">버전관리</a></li><li><a href="#tdd">TDD</a></li><li><a href="#마무리">마무리</a></li></ul></div><p></p> <h2 id="버전관리"><a href="#버전관리" class="header-anchor">#</a> 버전관리</h2> <div class="kakao-room"><div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        지난번에 파일을 압축해서 보내주셨는데, 혹시 GitHub 저장소에 초대해 주실 수 있나요?
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        아.. 저희가 아직 Git을 안쓰고 소스를 이메일로 공유하고 있어서요.. ㅠㅠ
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        매일매일 하루에 한번씩 압축해서 보관해요! ㅎㅎ
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        읔.. 그럼 이번에 본격적으로 Git을 도입해볼까요??
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        Git을 사용하면 타임머신처럼 이전 상태로 쉽게 돌아갈 수 있고 협업도 더 간편해질거에요 ㅎㅎ
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        오.. 좋습니다!
+      </div></div> <div class="msg-empty"></div></div></div></div> <p>Git은 리누스 토발즈가 2005년에 <s>2주 만에 만든</s> 분산 버전 관리 시스템(DVCS)<sup>Distributed version control systems</sup>입니다. 속도가 빠르고 강력한 브랜치 기능으로 사실상 표준으로 사용하고 있습니다.</p> <p>우선 <a href="https://subicura.com/git/prepare/git-setup.html" target="_blank" rel="noopener noreferrer">Git을 설치<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>하고 저장소를 설정합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 저장소 초기화</span>
+<span class="token function">git</span> init
+
+<span class="token comment"># 현재 저장소 상태 확인</span>
+<span class="token function">git</span> status
+</code></pre></div><div class="language-sh extra-class"><pre class="language-sh"><code>On branch main
+
+No commits yet
+
+Untracked files:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span>
+	.eslintrc.json
+	node_modules/
+	package-lock.json
+	package.json
+	src/
+
+nothing added to commit but untracked files present <span class="token punctuation">(</span>use <span class="token string">&quot;git add&quot;</span> to track<span class="token punctuation">)</span>
+</code></pre></div><p><code>Untracked files</code>에 버전 관리할 파일들이 보입니다. 근데 <code>node_modules</code>는 <code>npm install</code>로 설치하는 항목이므로 버전 관리에서 제외해야 합니다. 가급적 소스코드만 최소한으로 관리하는 것이 좋습니다.</p> <p><code>.gitignore</code> 파일을 생성합니다.</p> <div class="language- extra-class"><pre class="language-text"><code>node_modules
+</code></pre></div><p>이제 <code>node_modules</code> 폴더를 제외했으니 첫 번째 커밋을 작성합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 전체 파일을 버전 관리 항목으로 추가</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token comment"># 첫 번째 커밋!</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;init&quot;</span>
+</code></pre></div><p>🎉 첫 번째 커밋을 성공했습니다. 이제 나중에 파일을 지우거나 수정하면 변경된 내용을 확인할 수 있고 복구할 수도 있습니다.</p> <div class="custom-block tip"><p class="custom-block-title">Git 더보기</p> <p>📔 <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">공식 문서<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br>
+📔 <a href="https://subicura.com/git/" target="_blank" rel="noopener noreferrer">Git / GitHub 안내서<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br>
+📝 <a href="https://subicura.com/git/prepare/" target="_blank" rel="noopener noreferrer">Git 설치하기<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br>
+📝 <a href="https://subicura.com/git/guide/#git%E1%84%8B%E1%85%B4-%E1%84%90%E1%85%B3%E1%86%A8%E1%84%8C%E1%85%B5%E1%86%BC" target="_blank" rel="noopener noreferrer">Git 기본 가이드<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <h2 id="tdd"><a href="#tdd" class="header-anchor">#</a> TDD</h2> <p>Git도 도입했고, 이제 본격적으로 <code>Awesome API</code>의 두 번째 기능을 추가합니다. 지금 생각하는 기능은 <code>/ping</code>에 요청을 보내면 <code>{ &quot;status&quot;: &quot;ok&quot; }</code>를 응답하는 API 입니다.</p> <div class="kakao-room"><div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        Git 첫 번째 Commit 성공했어요!
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        오.. 축하합니다!
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        이번에 새로운 기능을 추가하고 있는데.. 혹시 TDD 방식으로 만들어 볼 수 있을까요?
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/senior.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        촋 CTO
+      </div> <div class="msg">
+        테스트 코드가 마음에 드셨나 보네요 ㅎㅎ
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        그럼 본격적으로 테스트 코드를 더 작성해볼까요??
+      </div></div> <div class="msg-empty"></div></div></div> <div class="kakao-msg is-me"><div class="msg-wrapper"><div class="avatar" style="background:url('/devops/imgs/undefined.png') no-repeat center center;background-size:cover;"></div> <div class="msg-info"><div class="user">
+        
+      </div> <div class="msg">
+        네네 ㅎㅎ
+      </div></div> <div class="msg-empty"></div></div></div></div> <p>테스트 코드를 작성하고 확인할 때, 매번 <code>npm t</code>를 입력하는 것이 번거로우므로 <code>--watch</code> 옵션을 추가합니다.</p> <p><code>package.json</code> 파일을 다음과 같이 수정합니다.</p> <div class="language-json extra-class"><div class="highlight-lines"><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br></div><pre class="language-json"><code><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node src/server.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;lint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eslint .&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;format&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prettier --write \&quot;src/**/*.+(js|json)\&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;validate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;npm run lint &amp;&amp; npm run format&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;test:watch&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest --watch&quot;</span> <span class="token comment">// ⇠ 추가</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+...
+</code></pre></div><p>스크립트를 실행합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 테스트 실행</span>
+<span class="token function">npm</span> run test:watch
+</code></pre></div><div class="language-sh extra-class"><pre class="language-sh"><code>No tests found related to files changed since last commit.
+Press <span class="token variable"><span class="token variable">`</span>a<span class="token variable">`</span></span> to run all tests, or run Jest with <span class="token variable"><span class="token variable">`</span>--watchAll<span class="token variable">`</span></span><span class="token builtin class-name">.</span>
+
+Watch Usage
+ › Press a to run all tests.
+ › Press f to run only failed tests.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a <span class="token builtin class-name">test</span> name regex pattern.
+ › Press q to quit <span class="token function">watch</span> mode.
+ › Press Enter to trigger a <span class="token builtin class-name">test</span> run.
+</code></pre></div><p>Jest는 똑똑하게 마지막 커밋 이후로 수정된 파일에 대해서 테스트를 수행합니다. 테스트 코드를 추가합니다.</p> <p><code>src/__tests__/app.js</code>에 <code>/ping</code>에 대한 테스트를 추가합니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">...</span>
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'&quot;/ping&quot; 요청시 &quot;status: ok&quot; 응답 확인'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> app<span class="token punctuation">.</span><span class="token function">inject</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    url<span class="token operator">:</span> <span class="token string">&quot;/ping&quot;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">expect</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token string">&quot;ok&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>테스트 코드를 저장하면 자동으로 테스트를 수행합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code> FAIL  src/__tests__/app.js
+  ✓ <span class="token string">&quot;/&quot;</span> 요청시 <span class="token string">&quot;hello: world&quot;</span> 응답 확인 <span class="token punctuation">(</span><span class="token number">79</span> ms<span class="token punctuation">)</span>
+  ✕ <span class="token string">&quot;/ping&quot;</span> 요청시 <span class="token string">&quot;status: ok&quot;</span> 응답 확인 <span class="token punctuation">(</span><span class="token number">3</span> ms<span class="token punctuation">)</span>
+
+  ● <span class="token string">&quot;/ping&quot;</span> 요청시 <span class="token string">&quot;status: ok&quot;</span> 응답 확인
+
+    expect<span class="token punctuation">(</span>received<span class="token punctuation">)</span>.toEqual<span class="token punctuation">(</span>expected<span class="token punctuation">)</span> // deep equality
+
+    - Expected  - <span class="token number">1</span>
+    + Received  + <span class="token number">3</span>
+
+      Object <span class="token punctuation">{</span>
+    -   <span class="token string">&quot;status&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;ok&quot;</span>,
+    +   <span class="token string">&quot;error&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;Not Found&quot;</span>,
+    +   <span class="token string">&quot;message&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;Route GET:/ping not found&quot;</span>,
+    +   <span class="token string">&quot;statusCode&quot;</span><span class="token builtin class-name">:</span> <span class="token number">404</span>,
+      <span class="token punctuation">}</span>
+
+      <span class="token number">18</span> <span class="token operator">|</span>     url: <span class="token string">&quot;/ping&quot;</span>,
+      <span class="token number">19</span> <span class="token operator">|</span>   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&gt;</span> <span class="token number">20</span> <span class="token operator">|</span>   expect<span class="token punctuation">(</span>res.json<span class="token punctuation">(</span><span class="token punctuation">))</span>.toEqual<span class="token punctuation">(</span><span class="token punctuation">{</span> status: <span class="token string">&quot;ok&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token operator">|</span>                      ^
+      <span class="token number">21</span> <span class="token operator">|</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token number">22</span> <span class="token operator">|</span>
+
+      at Object.<span class="token operator">&lt;</span>anonymous<span class="token operator">&gt;</span> <span class="token punctuation">(</span>src/__tests__/app.js:20:22<span class="token punctuation">)</span>
+
+Test Suites: <span class="token number">1</span> failed, <span class="token number">1</span> total
+Tests:       <span class="token number">1</span> failed, <span class="token number">1</span> passed, <span class="token number">2</span> total
+Snapshots:   <span class="token number">1</span> passed, <span class="token number">1</span> total
+Time:        <span class="token number">0.309</span> s, estimated <span class="token number">1</span> s
+Ran all <span class="token builtin class-name">test</span> suites related to changed files.
+
+Watch Usage: Press w to show more.
+</code></pre></div><p>아직 코드를 작성하기 전이므로 정상적으로 테스트가 실패하였습니다.</p> <p>저장할 때마다 실시간으로 테스트 결과를 알려주니 편한 것 같습니다. <s>모니터를 하나 더 사야겠습니다</s></p> <p>이제 <code>src/app.js</code> 파일에 <code>/ping</code> 내용을 추가합니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">...</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;/ping&quot;</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token string">&quot;ok&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>파일을 저장하면 자동으로 테스트를 수행합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code> PASS  src/__tests__/app.js
+  ✓ <span class="token string">&quot;/&quot;</span> 요청시 <span class="token string">&quot;hello: world&quot;</span> 응답 확인 <span class="token punctuation">(</span><span class="token number">90</span> ms<span class="token punctuation">)</span>
+  ✓ <span class="token string">&quot;/ping&quot;</span> 요청시 <span class="token string">&quot;status: ok&quot;</span> 응답 확인 <span class="token punctuation">(</span><span class="token number">2</span> ms<span class="token punctuation">)</span>
+
+Test Suites: <span class="token number">1</span> passed, <span class="token number">1</span> total
+Tests:       <span class="token number">2</span> passed, <span class="token number">2</span> total
+Snapshots:   <span class="token number">1</span> passed, <span class="token number">1</span> total
+Time:        <span class="token number">0.295</span> s, estimated <span class="token number">1</span> s
+Ran all <span class="token builtin class-name">test</span> suites related to changed files.
+
+Watch Usage: Press w to show more.
+</code></pre></div><p>🎉 성공! 경고 없이 실행되었습니다.</p> <p>새로운 기능을 순식간에 만들었고 테스트 코드가 있어 심적으로 안정감을 느낍니다. <code>toEqual</code>을 <code>toMatchInlineSnapshot</code> 함수로 변경하고 수정한 코드를 커밋합니다.</p> <p>아참! 커밋하기전에 정적 코드 분석을 먼저합니다.</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token comment"># 정적분석, 포멧팅 실행</span>
+<span class="token function">npm</span> run validate
+<span class="token comment"># 변경된 파일 추가</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token comment"># 커밋</span>
+<span class="token function">git</span> commit -m <span class="token string">&quot;add ping&quot;</span>
+</code></pre></div><h2 id="마무리"><a href="#마무리" class="header-anchor">#</a> 마무리</h2> <p>Git은 많은 회사에서 사용 중인 협업을 위한 필수 도구입니다. 단순 이력 관리 외에 다양한 부가기능이 있으며, CLI 외에 GUI 도구나 IDE에 내장된 기능을 적절히 사용하면 생산성을 높일 수 있습니다. 특히 Git의 고급기능을 사용하면 고오오오급 개발자처럼 보이는 효과가 있습니다.</p> <p>이제 Git을 도입했으니 본격적으로 GitHub을 이용하여 팀과 협업해봅니다.</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/subicura/devops/edit/master/src/guide/git.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2022-03-18</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/devops/guide/web.html" class="prev">
+        Node.js 웹 애플리케이션
+      </a></span> <span class="next"><a href="/devops/guide/github.html">
+        GitHub
+      </a>
+      →
+    </span></p></div> <div class="ut-comment-wrapper"></div></main></div><div class="global-ui"><!----></div></div>
+    <script src="/devops/assets/js/app.d5984bfa.js" defer></script><script src="/devops/assets/js/7.9d38de38.js" defer></script><script src="/devops/assets/js/2.c52c0dc6.js" defer></script><script src="/devops/assets/js/1.f7010e06.js" defer></script><script src="/devops/assets/js/30.c38e081e.js" defer></script><script src="/devops/assets/js/19.633a7f1e.js" defer></script><script src="/devops/assets/js/18.07ba2353.js" defer></script>
+  </body>
+</html>
